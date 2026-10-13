@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Личный кабинет ученика онлайн-школы английского языка. Интерактивные домашние задания и расписание.">
+    <title>English School</title>
+    <link rel="icon" type="image/x-icon" href="public/favicon.ico">
+</head>
+<body>
+<main class="dashboard">
+    <!-- Шапка кабинета -->
+    <header class="dashboard__header">
+        <div class="dashboard__user">
+            <div class="dashboard__avatar">N</div>
+            <div class="dashboard__welcome">
+                <span>Welcome back,</span>
+                <h3>Natalia</h3>
+            </div>
+        </div>
+        <div class="dashboard__balance">
+            <span class="dashboard__balance-count">8</span>
+            <span class="dashboard__balance-text">уроков</span>
+        </div>
+    </header>
+
+    <!-- Блок текущего урока -->
+    <section class="dashboard__card current-lesson">
+        <span class="current-lesson__badge">Следующий урок</span>
+        <h2 class="current-lesson__title">English for IT: Advanced</h2>
+        <p class="current-lesson__time">Сегодня, 19:00 (МСК)</p>
+        <button class="current-lesson__btn" aria-label="Войти в виртуальный класс для текущего урока">Войти в класс</button>
+    </section>
+
+    <!-- Интерактивный тренажер слов -->
+    <section class="dashboard__vocab">
+        <h4 class="dashboard__section-title">Слова на сегодня (5)</h4>
+
+        <!-- Карточка с 3D-переворотом на чистом SCSS -->
+        <div class="flip-card">
+            <div class="flip-card__inner">
+                <!-- Лицевая сторона (Английский) -->
+                <div class="flip-card__front">
+                    <span>To condition</span>
+                </div>
+                <!-- Обратная сторона (Перевод) -->
+                <div class="flip-card__back">
+                    <p>Обуславливать, определять условия</p>
+                </div>
+            </div>
+        </div>
+        <p class="dashboard__hint">💡 Наведи на карточку, чтобы узнать перевод</p>
+    </section>
+
+    <!-- Блок домашних заданий -->
+    <section class="dashboard__card homework">
+        <h4 class="dashboard__section-title">Домашнее задание</h4>
+
+        <div class="homework__list">
+            <!-- Таск 1 -->
+            <label class="homework__item">
+                <input type="checkbox" class="homework__checkbox" checked>
+                <span class="homework__custom-checkbox"></span>
+                <span class="homework__content">
+                    <span class="homework__task-title">Повторить ИТ-глоссарий</span>
+                    <span class="homework__task-tag">Vocabulary</span>
+                </span>
+            </label>
+
+            <!-- Таск 2 -->
+            <label class="homework__item">
+                <input type="checkbox" class="homework__checkbox">
+                <span class="homework__custom-checkbox"></span>
+                <span class="homework__content">
+                    <span class="homework__task-title">Слушать подкаст: React vs Angular</span>
+                    <span class="homework__task-tag">Listening</span>
+                </span>
+            </label>
+
+            <!-- Таск 3 -->
+            <label class="homework__item">
+                <input type="checkbox" class="homework__checkbox">
+                <span class="homework__custom-checkbox"></span>
+                <span class="homework__content">
+                    <span class="homework__task-title">Написать эссе "My frontend stack"</span>
+                    <span class="homework__task-tag">Writing</span>
+                </span>
+            </label>
+        </div>
+    </section>
+
+    <!-- Блок расписания уроков -->
+    <section class="dashboard__card schedule">
+        <h4 class="dashboard__section-title">Расписание занятий</h4>
+
+        <div class="schedule__list">
+            <!-- Урок 1 -->
+            <div class="schedule__item schedule__item--next">
+                <div class="schedule__date">
+                    <span class="schedule__day">15</span>
+                    <span class="schedule__month">окт</span>
+                </div>
+                <div class="schedule__info">
+                    <p class="schedule__subject">Speaking Club: Relocation</p>
+                    <span class="schedule__time">Четверг, 19:00</span>
+                </div>
+                <button class="schedule__action-btn" aria-label="Открыть ссылку на онлайн-трансляцию урока">Ссылка</button>
+            </div>
+
+            <!-- Урок 2 -->
+            <div class="schedule__item">
+                <div class="schedule__date">
+                    <span class="schedule__day">19</span>
+                    <span class="schedule__month">окт</span>
+                </div>
+                <div class="schedule__info">
+                    <p class="schedule__subject">Grammar: Conditionals</p>
+                    <span class="schedule__time">Понедельник, 18:30</span>
+                </div>
+                <button class="schedule__action-btn schedule__action-btn--disabled" disabled>Ждем</button>
+            </div>
+        </div>
+    </section>
+
+
+</main>
+
+<script type="module" src="main.js"></script>
+</body>
+</html>

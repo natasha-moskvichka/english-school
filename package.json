@@ -1,0 +1,28 @@
+{
+  "name": "english-school",
+  "version": "1.0.0",
+  "description": "Интерактивный прототип веб-интерфейса и личного кабинета для онлайн-школы английского языка. Проект разработан как независимый MVP с целью демонстрации современных возможностей фронтенд-разработки, интерактивных UI-компонентов и плавной анимации.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/natasha-moskvichka/english-school.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/natasha-moskvichka/english-school/issues"
+  },
+  "homepage": "https://github.com/natasha-moskvichka/english-school#readme",
+  "devDependencies": {
+    "sass": "^1.105.1",
+    "vite": "^8.3.4"
+  },
+  "dependencies": {
+    "gsap": "^3.15.0"
+  }
+}

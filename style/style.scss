@@ -1,0 +1,417 @@
+@font-face {
+  font-family: 'Gilroy';
+  src: url('fonts/gilroy/Gilroy-Regular_0.ttf') format('ttf'),
+  url('fonts/gilroy/Gilroy-Regular_0.ttf') format('ttf');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap; // Браузер сразу покажет текст, не дожидаясь загрузки файла!
+}
+
+@font-face {
+  font-family: 'Gilroy';
+  src: url('fonts/gilroy/Gilroy-Bold_0.ttf') format('ttf'),
+  url('fonts/gilroy/Gilroy-Bold_0.ttf') format('ttf');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+:root {
+  --color-white: #ffffff; // Основной фон
+  --color-text-main: #000000; // Для шрифтов как основной
+  --color-text-second: #b8b8b8; // Для шрифтов как второй
+
+  --color-disabled: #f5f5f5; // Для неактивных элементов
+
+  --color-accent: #f9dc4a; // Акцентный цвет для иконок/кнопок
+  --color-sched-blue: #9cb3d3; // Для кнопок в расписании (светло-синий)
+  --color-sched-burgundy: #6e2832; // Кнопки в расписании (бордовый)
+
+}
+
+// Базовый сброс и настройки
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Gilroy', 'Arial', sans-serif;
+  background-color: var(--color-white);
+  color: var(--color-text-main);
+  -webkit-font-smoothing: antialiased;
+}
+
+// Мобильный Личный Кабинет в фирменном стиле
+.dashboard {
+  padding: 20px;
+  max-width: 480px;
+  margin: 0 auto;
+
+  // Шапка
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    border-bottom: 2px solid var(--color-disabled);
+    padding-bottom: 16px;
+  }
+
+  &__user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  &__avatar {
+    width: 42px;
+    height: 42px;
+    background-color: var(--color-accent);
+    color: var(--color-text-main);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 16px;
+  }
+
+  &__welcome {
+    span {
+      font-size: 12px;
+      color: var(--color-text-second);
+    }
+    h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--color-text-main);
+    }
+  }
+
+  &__balance {
+    background-color: var(--color-disabled);
+    padding: 8px 14px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 600;
+
+    &-count {
+      font-weight: 700;
+      color: var(--color-sched-burgundy);
+    }
+  }
+
+  &__section-title {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-text-second);
+    margin-bottom: 12px;
+    font-weight: 700;
+  }
+
+  // Общие стили карточек
+  &__card {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-disabled);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  }
+
+  &__hint {
+    font-size: 11px;
+    color: var(--color-text-second);
+    text-align: center;
+    margin-top: 10px;
+  }
+}
+
+// Карточка текущего урока (Расписание)
+.current-lesson {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-sched-blue);
+
+  &__badge {
+    font-size: 11px;
+    text-transform: uppercase;
+    color: var(--color-sched-blue);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  &__title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: var(--color-text-main);
+  }
+
+  &__time {
+    font-size: 14px;
+    color: var(--color-text-second);
+    margin-bottom: 20px;
+  }
+
+  &__btn {
+    width: 100%;
+    padding: 14px;
+    background-color: var(--color-sched-burgundy);
+    color: var(--color-white);
+    border: none;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+
+    &:active {
+      opacity: 0.9;
+    }
+  }
+}
+
+// Блок домашнего задания
+.homework {
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 12px;
+  }
+
+  &__item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    cursor: pointer;
+    position: relative;
+  }
+
+  &__checkbox {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  &__custom-checkbox {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    border: 1px solid var(--color-text-second);
+    border-radius: 50%;
+    position: relative;
+    transition: all 0.25s ease;
+    margin-top: 2px;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      width: 6px;
+      height: 6px;
+      background-color: var(--color-text-main);
+      border-radius: 50%;
+      opacity: 0;
+      transform: scale(0);
+      transition: all 0.2s ease;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  &__task-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--color-text-main);
+    transition: all 0.25s ease;
+  }
+
+  &__task-tag {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--color-text-second);
+    text-transform: uppercase;
+  }
+
+  // Стили при выполнении
+  &__checkbox:checked + &__custom-checkbox {
+    border-color: var(--color-text-main);
+
+    &::after {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  &__checkbox:checked ~ &__content &__task-title {
+    color: var(--color-text-second);
+    text-decoration: line-through;
+  }
+}
+
+// 🎴 3D Flip Card Тренажер слов
+.flip-card {
+  background-color: transparent;
+  width: 100%;
+  height: 120px;
+  perspective: 1000px;
+  cursor: pointer;
+
+  &__inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+  }
+
+  &:hover &__inner, &:active &__inner {
+    transform: rotateX(180deg);
+  }
+
+  &__front, &__back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border: 1px solid var(--color-disabled);
+  }
+
+  &__front {
+    background-color: var(--color-white);
+    color: var(--color-text-main);
+    font-size: 22px;
+    font-weight: 700;
+  }
+
+  &__back {
+    background-color: var(--color-accent);
+    color: var(--color-text-main);
+    font-size: 16px;
+    font-weight: 700;
+    transform: rotateX(180deg);
+    border-color: var(--color-text-main);
+  }
+}
+
+// 📅 Блок расписания
+.schedule {
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 12px;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px;
+    border-radius: 12px;
+    border: 2px solid var(--color-disabled);
+    transition: all 0.3s ease;
+
+    // Модификатор для следующего (активного) урока
+    &--next {
+      border-color: var(--color-sched-blue);
+      box-shadow: 0 4px 15px rgba(156, 179, 211, 0.1);
+    }
+  }
+
+  // Календарная плашка слева
+  &__date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    background-color: var(--color-disabled);
+    border-radius: 10px;
+    flex-shrink: 0;
+
+    .schedule__item--next & {
+      background-color: rgba(156, 179, 211, 0.15);
+    }
+  }
+
+  &__day {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--color-text-main);
+    line-height: 1.1;
+  }
+
+  &__month {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--color-text-second);
+
+    .schedule__item--next & {
+      color: var(--color-sched-burgundy);
+    }
+  }
+
+  &__info {
+    flex-grow: 1;
+  }
+
+  &__subject {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--color-text-main);
+    margin-bottom: 2px;
+    line-height: 1.3;
+  }
+
+  &__time {
+    font-size: 12px;
+    color: var(--color-text-second);
+    font-weight: 600;
+  }
+
+  // Маленькая кнопка действия (Войти/Ссылка)
+  &__action-btn {
+    padding: 8px 14px;
+    background-color: var(--color-sched-burgundy);
+    color: var(--color-white);
+    border: none;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:active {
+      transform: scale(0.95);
+    }
+
+    // Состояние, когда урок еще недоступен
+    &--disabled {
+      background-color: var(--color-disabled);
+      color: var(--color-text-second);
+      cursor: not-allowed;
+    }
+  }
+}
