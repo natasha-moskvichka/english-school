@@ -5,11 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Личный кабинет ученика онлайн-школы английского языка. Интерактивные домашние задания и расписание.">
     <title>English School</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="public/favicon.ico">
+    <link rel="manifest" href="/manifest.json">
+
 </head>
 <body>
 <main class="dashboard">
-    <!-- Шапка кабинета -->
+    <!-- 1. ШАПКА КАБИНЕТА -->
     <header class="dashboard__header">
         <div class="dashboard__user">
             <div class="dashboard__avatar">N</div>
@@ -20,109 +25,186 @@
         </div>
         <div class="dashboard__balance">
             <span class="dashboard__balance-count">8</span>
-            <span class="dashboard__balance-text">уроков</span>
+            <span class="dashboard__balance-text">lessons left</span>
         </div>
     </header>
 
-    <!-- Блок текущего урока -->
-    <section class="dashboard__card current-lesson">
-        <span class="current-lesson__badge">Следующий урок</span>
-        <h2 class="current-lesson__title">English for IT: Advanced</h2>
-        <p class="current-lesson__time">Сегодня, 19:00 (МСК)</p>
-        <button class="current-lesson__btn" aria-label="Войти в виртуальный класс для текущего урока">Войти в класс</button>
-    </section>
+    <!-- 2. БЛОК ТЕКУЩЕГО УРОКА И ЧАТ С ПРЕПОДАВАТЕЛЕМ -->
+    <div class="dashboard__row">
+        <!-- Текущий урок -->
+        <section class="dashboard__card current-lesson">
+            <span class="current-lesson__badge">Next Lesson</span>
+            <h2 class="current-lesson__title">B1 Intermediate: Travel & Cultures</h2>
+            <p class="current-lesson__time">Today, 19:00 (MSK)</p>
+            <button class="current-lesson__btn" aria-label="Join virtual classroom">Join Classroom</button>
+        </section>
 
-    <!-- Интерактивный тренажер слов -->
-    <section class="dashboard__vocab">
-        <h4 class="dashboard__section-title">Слова на сегодня (5)</h4>
-
-        <!-- Карточка с 3D-переворотом на чистом SCSS -->
-        <div class="flip-card">
-            <div class="flip-card__inner">
-                <!-- Лицевая сторона (Английский) -->
-                <div class="flip-card__front">
-                    <span>To condition</span>
+        <!-- Чат с преподавателем -->
+        <section class="dashboard__card teacher-chat">
+            <h4 class="dashboard__section-title">Chat with Teacher (Emily)</h4>
+            <div class="teacher-chat__window">
+                <div class="teacher-chat__msg teacher-chat__msg--teacher">
+                    <p class="teacher-chat__text">Hi Natalia! Don't forget to listen to the podcast in your homework before our lesson tonight. See you!</p>
+                    <span class="teacher-chat__time">11:30 AM</span>
                 </div>
-                <!-- Обратная сторона (Перевод) -->
-                <div class="flip-card__back">
-                    <p>Обуславливать, определять условия</p>
+                <div class="teacher-chat__msg teacher-chat__msg--student">
+                    <p class="teacher-chat__text">Hello! Sure, I'm doing it right now. I have a question about Past Continuous, I'll ask you at 19:00.</p>
+                    <span class="teacher-chat__time">12:05 PM</span>
+                </div>
+            </div>
+            <div class="teacher-chat__input-zone">
+                <input type="text" class="teacher-chat__input" placeholder="Type a message...">
+                <button class="teacher-chat__send-btn">Send</button>
+            </div>
+        </section>
+    </div>
+
+    <!-- 3. ТРЕНАЖЕР И АРХИВ СЛОВАРЯ -->
+    <section class="dashboard__card vocabulary-section">
+        <h4 class="dashboard__section-title">Vocabulary Practice</h4>
+        <div class="vocabulary-container">
+            <!-- Интерактивная карточка (Тренажер) -->
+            <div class="vocab-trainer">
+                <p class="vocab-trainer__subtitle">Daily Card (1 of 5)</p>
+                <div class="flip-card">
+                    <div class="flip-card__inner">
+                        <div class="flip-card__front">
+                            <span>To condition</span>
+                        </div>
+                        <div class="flip-card__back">
+                            <p>Обуславливать, определять условия</p>
+                        </div>
+                    </div>
+                </div>
+                <p class="dashboard__hint">💡 Click the card to flip and see translation</p>
+                <div class="vocab-trainer__nav">
+                    <button class="vocab-trainer__nav-btn" disabled>← Prev</button>
+                    <button class="vocab-trainer__nav-btn">Next →</button>
+                </div>
+            </div>
+
+            <!-- Архив личного словаря ученика -->
+            <div class="vocab-archive">
+                <h5 class="vocab-archive__title">Your Dictionary (B1 Words)</h5>
+                <div class="vocab-archive__list">
+                    <div class="vocab-archive__item">
+                        <strong class="vocab-archive__word">Anxiety</strong>
+                        <span class="vocab-archive__translation">— тревога, беспокойство</span>
+                    </div>
+                    <div class="vocab-archive__item">
+                        <strong class="vocab-archive__word">To delayed</strong>
+                        <span class="vocab-archive__translation">— задерживать (рейс)</span>
+                    </div>
+                    <div class="vocab-archive__item">
+                        <strong class="vocab-archive__word">In advance</strong>
+                        <span class="vocab-archive__translation">— заранее, заблаговременно</span>
+                    </div>
+                    <div class="vocab-archive__item">
+                        <strong class="vocab-archive__word">Reasonable</strong>
+                        <span class="vocab-archive__translation">— разумный, приемлемый</span>
+                    </div>
                 </div>
             </div>
         </div>
-        <p class="dashboard__hint">💡 Наведи на карточку, чтобы узнать перевод</p>
     </section>
 
-    <!-- Блок домашних заданий -->
+    <!-- 4. БЛОК ИНТЕРАКТИВНЫХ ДОМАШНИХ ЗАДАНИЙ -->
     <section class="dashboard__card homework">
-        <h4 class="dashboard__section-title">Домашнее задание</h4>
+        <h4 class="dashboard__section-title">Current Homework Assignment</h4>
 
-        <div class="homework__list">
-            <!-- Таск 1 -->
-            <label class="homework__item">
-                <input type="checkbox" class="homework__checkbox" checked>
-                <span class="homework__custom-checkbox"></span>
-                <span class="homework__content">
-                    <span class="homework__task-title">Повторить ИТ-глоссарий</span>
-                    <span class="homework__task-tag">Vocabulary</span>
-                </span>
-            </label>
+        <div class="homework__container">
+            <!-- Задание 1: Аудирование + Тест -->
+            <div class="homework__task-block">
+                <div class="homework__task-meta">
+                    <span class="homework__task-tag">Listening & Grammar</span>
+                    <span class="homework__task-status homework__task-status--new">New</span>
+                </div>
+                <h5 class="homework__task-title">Audio: "A Nightmare Journey"</h5>
+                <p class="homework__task-desc">Listen to Chloe talking about her trip to Barcelona and choose the correct answer.</p>
 
-            <!-- Таск 2 -->
-            <label class="homework__item">
-                <input type="checkbox" class="homework__checkbox">
-                <span class="homework__custom-checkbox"></span>
-                <span class="homework__content">
-                    <span class="homework__task-title">Слушать подкаст: React vs Angular</span>
-                    <span class="homework__task-tag">Listening</span>
-                </span>
-            </label>
+                <audio class="homework__audio" controls src="public/audio/b1-travel-story.mp3"></audio>
 
-            <!-- Таск 3 -->
-            <label class="homework__item">
-                <input type="checkbox" class="homework__checkbox">
-                <span class="homework__custom-checkbox"></span>
-                <span class="homework__content">
-                    <span class="homework__task-title">Написать эссе "My frontend stack"</span>
-                    <span class="homework__task-tag">Writing</span>
-                </span>
-            </label>
+                <div class="homework__quiz">
+                    <p class="homework__question">1. Why did Chloe miss her flight to Barcelona?</p>
+                    <label class="homework__answer-option"><input type="radio" name="q1" value="traffic"> She got stuck in a massive traffic jam.</label>
+                    <label class="homework__answer-option"><input type="radio" name="q1" value="passport"> She realized she had forgotten her passport at home.</label>
+                    <label class="homework__answer-option"><input type="radio" name="q1" value="gate"> She was waiting at the wrong departure gate.</label>
+                </div>
+            </div>
+
+            <!-- Задание 2: Письменная работа (Вместо PDF) -->
+            <div class="homework__task-block">
+                <div class="homework__task-meta">
+                    <span class="homework__task-tag">Writing Practice</span>
+                </div>
+                <h5 class="homework__task-title">Your Story: "An Unexpected Travel Experience"</h5>
+                <p class="homework__task-desc">Write a short paragraph (80–120 words) about a time you had a problem while travelling. Use past tenses (Past Simple / Past Continuous).</p>
+
+                <textarea class="homework__textarea" placeholder="Last year, while I was travelling to..."></textarea>
+            </div>
+
+            <button class="homework__submit-btn" id="submitHomeworkBtn">Submit Homework to Teacher</button>
         </div>
     </section>
 
-    <!-- Блок расписания уроков -->
-    <section class="dashboard__card schedule">
-        <h4 class="dashboard__section-title">Расписание занятий</h4>
+    <!-- 5. РАСПИСАНИЕ И ЗАПИСИ ПРОШЕДШИХ УРОКОВ -->
+    <div class="dashboard__row">
+        <!-- Расписание будущих уроков -->
+        <section class="dashboard__card schedule">
+            <h4 class="dashboard__section-title">Upcoming Schedule</h4>
+            <div class="schedule__list">
+                <div class="schedule__item schedule__item--next">
+                    <div class="schedule__date">
+                        <span class="schedule__day">15</span>
+                        <span class="schedule__month">Oct</span>
+                    </div>
+                    <div class="schedule__info">
+                        <p class="schedule__subject">Speaking Club: Business Etiquette</p>
+                        <span class="schedule__time">Thursday, 19:00</span>
+                    </div>
+                    <button class="schedule__action-btn schedule__action-btn--blue">Link</button>
+                </div>
 
-        <div class="schedule__list">
-            <!-- Урок 1 -->
-            <div class="schedule__item schedule__item--next">
-                <div class="schedule__date">
-                    <span class="schedule__day">15</span>
-                    <span class="schedule__month">окт</span>
+                <div class="schedule__item">
+                    <div class="schedule__date">
+                        <span class="schedule__day">19</span>
+                        <span class="schedule__month">Oct</span>
+                    </div>
+                    <div class="schedule__info">
+                        <p class="schedule__subject">Grammar: Present Perfect vs Past Simple</p>
+                        <span class="schedule__time">Monday, 18:30</span>
+                    </div>
+                    <button class="schedule__action-btn schedule__action-btn--disabled" disabled>Soon</button>
                 </div>
-                <div class="schedule__info">
-                    <p class="schedule__subject">Speaking Club: Relocation</p>
-                    <span class="schedule__time">Четверг, 19:00</span>
-                </div>
-                <button class="schedule__action-btn" aria-label="Открыть ссылку на онлайн-трансляцию урока">Ссылка</button>
             </div>
+        </section>
 
-            <!-- Урок 2 -->
-            <div class="schedule__item">
-                <div class="schedule__date">
-                    <span class="schedule__day">19</span>
-                    <span class="schedule__month">окт</span>
+        <!-- Записи прошедших уроков -->
+        <section class="dashboard__card recordings">
+            <h4 class="dashboard__section-title">Lesson Video Recordings</h4>
+            <div class="recordings__list">
+                <!-- Запись 1 -->
+                <div class="recordings__item">
+                    <div class="recordings__icon">🎬</div>
+                    <div class="recordings__info">
+                        <p class="recordings__title">Lesson 12: Job Interview & Resume B1</p>
+                        <span class="recordings__date">Oct 12, 2026 • 62 mins</span>
+                    </div>
+                    <a href="#" class="recordings__watch-link">Watch video</a>
                 </div>
-                <div class="schedule__info">
-                    <p class="schedule__subject">Grammar: Conditionals</p>
-                    <span class="schedule__time">Понедельник, 18:30</span>
+
+                <!-- Запись 2 -->
+                <div class="recordings__item">
+                    <div class="recordings__icon">🎬</div>
+                    <div class="recordings__info">
+                        <p class="recordings__title">Lesson 11: Transport problems & Slang</p>
+                        <span class="recordings__date">Oct 08, 2026 • 58 mins</span>
+                    </div>
+                    <a href="#" class="recordings__watch-link">Watch video</a>
                 </div>
-                <button class="schedule__action-btn schedule__action-btn--disabled" disabled>Ждем</button>
             </div>
-        </div>
-    </section>
-
-
+        </section>
+    </div>
 </main>
 
 <script type="module" src="main.js"></script>

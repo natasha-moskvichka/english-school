@@ -9,7 +9,7 @@
 *   **Сборщик проекта:** [Vite](https://vite.dev) (оптимизированная сборка)
 *   **Архитектура стилей:** SCSS
 *   **Анимации:** [GSAP (GreenSock)](https://gsap.com)
-*   **Шрифты и иконки:** Google Fonts (Inter / Montserrat), SVG
+*   **Шрифты и иконки:** Google Fonts (Inter), SVG
 
 ---
 
