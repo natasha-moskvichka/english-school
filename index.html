@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,6 +29,10 @@
         </div>
     </header>
 
+    <button class="theme-toggle__btn" id="themeToggle" aria-label="Toggle theme">
+        <span class="theme-toggle__icon">🌙</span>
+    </button>
+
     <!-- 2. БЛОК ТЕКУЩЕГО УРОКА И ЧАТ С ПРЕПОДАВАТЕЛЕМ -->
     <div class="dashboard__row">
         <!-- Текущий урок -->
@@ -41,7 +45,7 @@
 
         <!-- Чат с преподавателем -->
         <section class="dashboard__card teacher-chat">
-            <h4 class="dashboard__section-title">Chat with Teacher (Emily)</h4>
+            <h4 class="dashboard__section-title">Chat with Teacher</h4>
             <div class="teacher-chat__window">
                 <div class="teacher-chat__msg teacher-chat__msg--teacher">
                     <p class="teacher-chat__text">Hi Natalia! Don't forget to listen to the podcast in your homework before our lesson tonight. See you!</p>
@@ -65,21 +69,21 @@
         <div class="vocabulary-container">
             <!-- Интерактивная карточка (Тренажер) -->
             <div class="vocab-trainer">
-                <p class="vocab-trainer__subtitle">Daily Card (1 of 5)</p>
+                <p class="vocab-trainer__subtitle">Daily Card (1 of 3)</p>
                 <div class="flip-card">
                     <div class="flip-card__inner">
                         <div class="flip-card__front">
-                            <span>To condition</span>
+                            <span></span>
                         </div>
                         <div class="flip-card__back">
-                            <p>Обуславливать, определять условия</p>
+                            <p></p>
                         </div>
                     </div>
                 </div>
                 <p class="dashboard__hint">💡 Click the card to flip and see translation</p>
                 <div class="vocab-trainer__nav">
-                    <button class="vocab-trainer__nav-btn" disabled>← Prev</button>
-                    <button class="vocab-trainer__nav-btn">Next →</button>
+                    <button class="vocab-trainer__nav-btn disabled" id="vocabPrev">← Prev</button>
+                    <button class="vocab-trainer__nav-btn disabled" id="vocabNext">Next →</button>
                 </div>
             </div>
 
@@ -207,6 +211,6 @@
     </div>
 </main>
 
-<script type="module" src="main.js"></script>
+<script type="module" src="src/main.js"></script>
 </body>
 </html>
