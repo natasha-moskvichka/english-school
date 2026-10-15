@@ -21,6 +21,10 @@
   --color-sched-blue: #9cb3d3;
   --color-sched-burgundy: #6e2832;
   --color-text-on-accent: #1e1e1c;
+  --color-success: #28a745;
+  --bg-success: #f4faf6;
+  --color-error: #dc3545;
+  --bg-error: #fdf5f6;
 }
 
 [data-theme = "dark"] {
@@ -32,6 +36,8 @@
   --color-sched-blue: #7a99c2;
   --color-sched-burgundy: #e06c75;
   --color-text-on-accent: #1e1e1c;
+  --bg-success: rgba(40, 167, 69, 0.1);
+  --bg-error: rgba(220, 53, 69, 0.1);
 }
 
 *, *::before, *::after {
@@ -278,7 +284,8 @@ body {
   padding-right: 20px;
 }
 
-.vocab-trainer__subtitle {
+.vocab-trainer__subtitle,
+.vocab-trainer__count {
   color: var(--color-text-second);
   font-size: 12px;
   margin: 0 0 10px 0;
@@ -298,7 +305,7 @@ body {
   background: var(--color-white);
   border-radius: 6px;
   cursor: pointer;
-  color: var(--color-text-second);
+  color: var(--color-text-main);
 }
 
 .vocab-trainer__nav-btn:disabled {
@@ -431,13 +438,16 @@ body {
 }
 
 .homework__answer-option {
-  display: block;
+  display: flex;
+  gap: 6px;
+  align-self: center;
   padding: 12px;
   background: var(--color-disabled);
   border-radius: 8px;
   margin-bottom: 8px;
   cursor: pointer;
   font-size: 14px;
+  border: 1px solid transparent;
 }
 
 .homework__answer-option.correct {
@@ -596,4 +606,15 @@ body {
   background-color: var(--color-disabled);
   cursor: not-allowed;
   pointer-events: none;
+  color: var(--color-text-second);
+}
+
+.success {
+  border-left: 2px solid var(--color-success);
+  background-color: var(--bg-success);
+}
+
+.error {
+  border-left: 2px solid var(--color-error);
+  background-color: var(--bg-error);
 }

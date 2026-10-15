@@ -69,7 +69,9 @@
         <div class="vocabulary-container">
             <!-- Интерактивная карточка (Тренажер) -->
             <div class="vocab-trainer">
-                <p class="vocab-trainer__subtitle">Daily Card (1 of 3)</p>
+                <p class="vocab-trainer__subtitle">
+                    <span class="vocab-trainer__count"></span>
+                </p>
                 <div class="flip-card">
                     <div class="flip-card__inner">
                         <div class="flip-card__front">
@@ -123,17 +125,24 @@
                     <span class="homework__task-tag">Listening & Grammar</span>
                     <span class="homework__task-status homework__task-status--new">New</span>
                 </div>
-                <h5 class="homework__task-title">Audio: "A Nightmare Journey"</h5>
-                <p class="homework__task-desc">Listen to Chloe talking about her trip to Barcelona and choose the correct answer.</p>
+                <h5 class="homework__task-title">Audio: "My Ideal Vacation"</h5>
+                <p class="homework__task-desc">Listen to the speaker talking about their recent road trip and choose the correct answer below.</p>
 
                 <audio class="homework__audio" controls src="public/audio/b1-travel-story.mp3"></audio>
 
                 <div class="homework__quiz">
-                    <p class="homework__question">1. Why did Chloe miss her flight to Barcelona?</p>
-                    <label class="homework__answer-option"><input type="radio" name="q1" value="traffic"> She got stuck in a massive traffic jam.</label>
-                    <label class="homework__answer-option"><input type="radio" name="q1" value="passport"> She realized she had forgotten her passport at home.</label>
-                    <label class="homework__answer-option"><input type="radio" name="q1" value="gate"> She was waiting at the wrong departure gate.</label>
+                    <p class="homework__question">1. What was the highlight of the speaker's road trip?</p>
+                    <label class="homework__answer-option">
+                        <input type="radio" name="q1" value="towns"> Exploring historical towns and tasting local food.
+                    </label>
+                    <label class="homework__answer-option">
+                        <input type="radio" name="q1" value="camping"> Camping near a beautiful lake without Wi-Fi.
+                    </label>
+                    <label class="homework__answer-option">
+                        <input type="radio" name="q1" value="spain"> Visiting Spain to practice the language.
+                    </label>
                 </div>
+
             </div>
 
             <!-- Задание 2: Письменная работа (Вместо PDF) -->

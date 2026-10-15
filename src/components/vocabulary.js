@@ -4,7 +4,7 @@ const flipCardFront = document.querySelector('.flip-card__front');
 const flipCardBack = document.querySelector('.flip-card__back');
 const flipCard = document.querySelector('.flip-card');
 const plug = flipCardFront.querySelector('span');
-console.log(plug)
+const vocabTrainerCount = document.querySelector('.vocab-trainer__count');
 
 const words = [
     { en: 'To delay', ru: 'задерживать (рейс)' },
@@ -18,6 +18,8 @@ let currentIndex = 0;
 function updateCard() {
     if (words.length === 0) {
         plug.textContent = 'No words for today';
+        vocabTrainerCount.textContent = `Daily Card ( ${currentIndex} of ${words.length} )`;
+        console.log(currentIndex)
 
     } else if (words.length > 1) {
         vocabTrainerBtnPrev.classList.remove('disabled');
@@ -26,6 +28,7 @@ function updateCard() {
         flipCardFront.textContent = currentWord.en;
         flipCardBack.textContent = currentWord.ru;
         flipCard.classList.remove('is-flipped');
+        vocabTrainerCount.textContent = `Daily Card ( ${currentIndex + 1} of ${words.length} )`;
     }
 }
 
