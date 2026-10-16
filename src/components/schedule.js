@@ -88,7 +88,7 @@ mockLessons.forEach(lesson => {
 
         if (currentTime >= startTimeMs) {
             const button = document.createElement('a');
-            button.classList.add('schedule__action-btn', 'schedule__action-btn--blue');
+            button.classList.add('schedule__action-btn', 'schedule__action-btn--yellow');
             button.textContent = 'Join';
             button.href = 'https://natasha-moskvichka.github.io/english-school/';
             button.target = '_blank';
@@ -98,7 +98,7 @@ mockLessons.forEach(lesson => {
 
         else {
             const button = document.createElement('button');
-            button.classList.add('schedule__action-btn');
+            button.classList.add('schedule__action-btn', 'schedule__action-btn--blue');
             button.textContent = 'Soon';
             button.disabled = true;
             card.appendChild(button);

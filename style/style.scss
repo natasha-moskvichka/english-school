@@ -570,6 +570,11 @@ body {
   color: var(--color-white);
 }
 
+.schedule__action-btn--yellow {
+  background: var(--color-accent);
+  color: var(--color-text-on-accent);
+}
+
 .schedule__action-btn--disabled {
   background: var(--color-disabled);
   color: var(--color-text-second);
