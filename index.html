@@ -3,11 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Личный кабинет ученика онлайн-школы английского языка. Интерактивные домашние задания и расписание.">
+    <meta name="description"
+          content="Личный кабинет ученика онлайн-школы английского языка. Интерактивные домашние задания и расписание.">
     <title>English School</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="public/favicon.ico">
     <link rel="manifest" href="/manifest.json">
 
@@ -20,11 +18,11 @@
             <div class="dashboard__avatar">N</div>
             <div class="dashboard__welcome">
                 <span>Welcome back,</span>
-                <h3>Natalia</h3>
+                <h3>User</h3>
             </div>
         </div>
         <div class="dashboard__balance">
-            <span class="dashboard__balance-count">8</span>
+            <span class="dashboard__balance-count"></span>
             <span class="dashboard__balance-text">lessons left</span>
         </div>
     </header>
@@ -48,11 +46,13 @@
             <h4 class="dashboard__section-title">Chat with Teacher</h4>
             <div class="teacher-chat__window">
                 <div class="teacher-chat__msg teacher-chat__msg--teacher">
-                    <p class="teacher-chat__text">Hi Natalia! Don't forget to listen to the podcast in your homework before our lesson tonight. See you!</p>
+                    <p class="teacher-chat__text">Hi Natalia! Don't forget to listen to the podcast in your homework
+                        before our lesson tonight. See you!</p>
                     <span class="teacher-chat__time">11:30 AM</span>
                 </div>
                 <div class="teacher-chat__msg teacher-chat__msg--student">
-                    <p class="teacher-chat__text">Hello! Sure, I'm doing it right now. I have a question about Past Continuous, I'll ask you at 19:00.</p>
+                    <p class="teacher-chat__text">Hello! Sure, I'm doing it right now. I have a question about Past
+                        Continuous, I'll ask you at 19:00.</p>
                     <span class="teacher-chat__time">12:05 PM</span>
                 </div>
             </div>
@@ -126,7 +126,8 @@
                     <span class="homework__task-status homework__task-status--new">New</span>
                 </div>
                 <h5 class="homework__task-title">Audio: "My Ideal Vacation"</h5>
-                <p class="homework__task-desc">Listen to the speaker talking about their recent road trip and choose the correct answer below.</p>
+                <p class="homework__task-desc">Listen to the speaker talking about their recent road trip and choose the
+                    correct answer below.</p>
 
                 <audio class="homework__audio" controls src="public/audio/b1-travel-story.mp3"></audio>
 
@@ -151,7 +152,8 @@
                     <span class="homework__task-tag">Writing Practice</span>
                 </div>
                 <h5 class="homework__task-title">Your Story: "An Unexpected Travel Experience"</h5>
-                <p class="homework__task-desc">Write a short paragraph (80–120 words) about a time you had a problem while travelling. Use past tenses (Past Simple / Past Continuous).</p>
+                <p class="homework__task-desc">Write a short paragraph (80–120 words) about a time you had a problem
+                    while travelling. Use past tenses (Past Simple / Past Continuous).</p>
 
                 <textarea class="homework__textarea" placeholder="Last year, while I was travelling to..."></textarea>
             </div>
@@ -164,32 +166,23 @@
     <div class="dashboard__row">
         <!-- Расписание будущих уроков -->
         <section class="dashboard__card schedule">
-            <h4 class="dashboard__section-title">Upcoming Schedule</h4>
-            <div class="schedule__list">
-                <div class="schedule__item schedule__item--next">
-                    <div class="schedule__date">
-                        <span class="schedule__day">15</span>
-                        <span class="schedule__month">Oct</span>
-                    </div>
-                    <div class="schedule__info">
-                        <p class="schedule__subject">Speaking Club: Business Etiquette</p>
-                        <span class="schedule__time">Thursday, 19:00</span>
-                    </div>
-                    <button class="schedule__action-btn schedule__action-btn--blue">Link</button>
-                </div>
-
-                <div class="schedule__item">
-                    <div class="schedule__date">
-                        <span class="schedule__day">19</span>
-                        <span class="schedule__month">Oct</span>
-                    </div>
-                    <div class="schedule__info">
-                        <p class="schedule__subject">Grammar: Present Perfect vs Past Simple</p>
-                        <span class="schedule__time">Monday, 18:30</span>
-                    </div>
-                    <button class="schedule__action-btn schedule__action-btn--disabled" disabled>Soon</button>
+            <h4 class="dashboard__section-title">Schedule</h4>
+            <!-- Контейнер для будущих уроков -->
+            <div class="schedule-section">
+                <h5 class="schedule__title">Upcoming Lessons</h5>
+                <div class="schedule__list" id="upcomingLessonsContainer">
+                    <!-- Сюда JS будет вставлять карточки с кнопкой "Join" или "Soon" -->
                 </div>
             </div>
+
+            <!-- Контейнер для прошедших уроков -->
+            <div class="schedule-section schedule-section--past">
+                <h5 class="schedule__title">Past Lessons</h5>
+                <div class="schedule__list" id="pastLessonsContainer">
+                    <!-- Карточки с кнопками -->
+                </div>
+            </div>
+
         </section>
 
         <!-- Записи прошедших уроков -->
@@ -218,6 +211,7 @@
             </div>
         </section>
     </div>
+
 </main>
 
 <script type="module" src="src/main.js"></script>
